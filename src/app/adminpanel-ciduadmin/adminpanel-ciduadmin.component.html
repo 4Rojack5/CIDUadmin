@@ -1,0 +1,107 @@
+<app-navbar-principal></app-navbar-principal>
+<body class="fondo">
+    <section class="px-5">
+      <section class="px-5" id="section1">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <br>
+        <div class="row align-items-center">
+            <div class="col" id="col1">
+                <img [src]="logo" id="logocidu" alt="...">
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <br>
+        </section>
+    <div class="row align-items-center">
+        <div class="col">
+          <div class="card" style="width: 18rem;" title="Agrega un nuevo avalúo a tu base de datos.">
+            <a routerLink="/CIDUadminappraisal">
+            <img [src]="lupa" class="card-img-top" routerLink="/CIDUadminappraisal">
+            <div class="card-body">
+              <p class="card-text" id="panel1">AGREGAR AVALÚO</p>
+            </div>
+            <svg>
+              <rect x="0" y="0" fill="none"></rect>
+            </svg>
+          </a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" title="Observa los diferentes avalúos que contiene la base de datos en un mapa.">
+              <a routerLink="/CIDUadminmap">
+              <img [src]="bogmap" class="card-img-top" routerLink="/CIDUadminmap">
+              <div class="card-body">
+                <p class="card-text" id="panel1">MAPA</p>
+              </div>
+              <svg>
+                <rect x="0" y="0" fill="none"></rect>
+              </svg>
+            </a>
+              </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;" title="observa los avalúos de CIDU en una tabla.">
+            <a routerLink="/CIDUadminbackground">
+            <img [src]="historico" class="card-img-top" routerLink="/CIDUadminbackground">
+            <div class="card-body">
+              <p class="card-text" id="panel1">HISTORICO AVALÚOS</p>
+            </div>
+            <svg>
+              <rect x="0" y="0" fill="none"></rect>
+            </svg>
+          </a>
+            </div>
+        </div>
+      </div>
+      <div class="row align-items-center" id="separation1">
+        <div class="col" id="separation2">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="card" style="width: 18rem;" title="Cambia las tarifas de los avalúos.">
+            <a routerLink="/CIDUadminrates">
+            <img [src]="tarifas" class="card-img-top" routerLink="/CIDUadminrates">
+            <div class="card-body">
+              <p class="card-text" id="panel1">TARIFAS</p>
+            </div>
+            <svg>
+              <rect x="0" y="0" fill="none"></rect>
+            </svg>
+          </a>
+            </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;" title="Gestiona usuarios de la aplicación.">
+            <a routerLink="/CIDUadmingestion">
+            <img [src]="perfil" class="card-img-top" routerLink="/CIDUadmingestion">
+            <div class="card-body">
+              <p class="card-text" id="panel1">GESTIÓN DE USUARIOS</p>
+            </div>
+            <svg>
+              <rect x="0" y="0" fill="none"></rect>
+            </svg>
+          </a>
+            </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;" title="¡Hasta la proxima!">
+            <a routerLink="/inicio">
+            <img [src]="salir" class="card-img-top" routerLink="/inicio">
+            <div class="card-body">
+              <p class="card-text" id="panel1">SALIR</p>
+            </div>
+            <svg>
+              <rect x="0" y="0" fill="none"></rect>
+            </svg>
+          </a>
+            </div>
+        </div>
+      </div>
+    </section>
+</body>
+    <app-footer></app-footer>

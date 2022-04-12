@@ -1,0 +1,72 @@
+.fondo {
+    background-color: #294374;
+    color: var(--light);
+    overflow-x: hidden;
+    font-family: "gothic";
+  }
+  #section1{  
+    margin-top: 100px;
+    margin-bottom: 25px;
+  }
+  #logocidu{ 
+    margin-bottom: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 265px;
+    height: 115px;
+  }
+  #col1{
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-fluid{
+    justify-content: center;
+    align-items: center; 
+  }
+  #rowformat{
+    justify-content: center;
+    align-items: center; 
+  }
+
+  form{
+    background-color: #52525299;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  #alerta{
+    height: 305px;
+  }
+  #titulo{
+    margin-bottom: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  #h1{
+    font-family: "gothicb";
+    font-size: 40px;
+  }
+  .boton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 80px;
+    background: #334f91;
+    color: #ffffff;
+    font-family: 'roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .9s ease all;
+    border-bottom: 5px solid #294374;
+    border-radius: 12px;
+}
+.boton:hover{
+    background: #294374;
+}

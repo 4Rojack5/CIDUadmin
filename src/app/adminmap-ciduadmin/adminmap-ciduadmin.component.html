@@ -1,0 +1,79 @@
+<app-navbar-principal></app-navbar-principal>
+<body class="fondo">
+    <section class="px-5" id="section1">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <br>
+    <div class="row align-items-center">
+        <div class="col" id="col1">
+            <img [src]="logo" id="logocidu" alt="...">
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <br>
+    </section>
+    <section>
+      <div class="container" id="titulo">
+        <p id="h1">MAPA DE AVALÚOS</p>
+      </div>
+    </section>
+    <div class="row align-items-center">
+        <div class="col pl-5 mb-3">
+            <div id="map">
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId" [zoomControl]="zoomControl" [scaleControl]="scaleControl" [mapTypeControl]="mapTypeControl" [fullscreenControl]="fullscreenControl" [panControl]="panControl">
+                  <agm-marker [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="lat" [longitude]="lng" *ngIf="located">
+                    <agm-info-window>
+                      <label class="text-dark">Mi posición</label>
+                    </agm-info-window>
+                  </agm-marker>
+                  <agm-marker *ngFor="let ubi of Marcadores; let iControl=index" [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="ubi.latitud" [longitude]="ubi.longitud">
+                    <agm-info-window>
+                      <label class="text-dark">{{ ubi.ubicacion }}</label>
+                    </agm-info-window>
+                  </agm-marker>
+              </agm-map>
+            </div>
+        </div>
+        <div class="col pr-5">
+        <form (ngSubmit)="enviarDatos()" class="was-validated px-5">
+          <div class="mt-5">
+            <label class="form-check-label mb-3" for="validationFormCheck3" id="raisalsearchtext">Ingrese C.C. dueño del inmueble:</label>
+            <br>
+            <input type="text" class="form-control" id="validationFormCheck3" name="radio-stacked" required>
+            <div class="invalid-feedback">Digite numero de cedula.</div>
+          </div>
+            <div class="buttonsearch mb-3 mt-2">
+              <button class="btn" type="submit">
+                <img [src]="raisal" id="raisal" alt="...">
+                <span id="textraisal">Buscar Avalúo</span>
+              </button>
+            </div>
+            <div class="row justify-content-center mt-5 mb-5">
+              <div class="col-4">
+                <button class="boton" (click)="getCurrentPosition()">
+                  <img [src]="ubi" id="logoubi" alt="...">
+                  <span>Ubicación Actual</span>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="boton botonmar" (click)="getOriginalPosition()">
+                  <img [src]="ubipro" id="logomar" alt="...">
+                  <br>
+                  <span>Reiniciar Búsqueda</span>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="boton" routerLink="/CIDUadminbackground">
+                  <img [src]="his" id="logohis" alt="...">
+                  <span>Historico Avalúos</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

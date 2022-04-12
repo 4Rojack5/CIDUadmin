@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <img src="assets/Pictures/ciduadminlogob.png" class="d-flex mr-auto" id="end" width="210" height="50" href="">  
+
+
+          <li class="nav-item dropdown">
+              <a class="nav-item dropdown-toggle" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Juan Felipe Rodríguez Rendón
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><a class="dropdown-item" href="/CIDUadminprofile">Perfil</a></li>
+                <li><a class="dropdown-item" href="/CIDUadmingestion">Usuarios</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/inicio">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+            <img src="assets/Pictures/avatar.png" class="d-flex" id="end" width="50" height="50" href="">  
+
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <img src="assets/Pictures/avatar.png" id="navbar-image" width="50" height="50" href="https://www.cidu.com.co/">  
+              <h6 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Bienvenido, Juan Felipe Rodríguez Rendón</h6>
+              <button type="button" class="btn-close text-reset btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item" id="paddel">
+                    <img src="assets/Pictures/LogoNombre.png" class="d-flex" id="end" width="240" height="100" href=""> 
+                  </li>
+                  <br>
+                <li class="nav-item" id="paddel">
+                  <a class="nav-link active" aria-current="page" href="/CIDUadminpanel" id="abutton">Inicio</a>
+                </li>
+                <li class="nav-item active" id="paddel">
+                  <a class="nav-link" href="/CIDUadminappraisal" id="abutton">Agregar Avalúo</a>
+                </li>
+                <li class="nav-item active" id="paddel">
+                  <a class="nav-link" href="/CIDUadminmap" id="abutton">Mapa</a>
+                </li>
+                <li class="nav-item active" id="paddel">
+                  <a class="nav-link" href="/CIDUadminbackground" id="abutton">Historico de Avalúos</a>
+                </li>
+                <li class="nav-item mt-5" id="paddel">
+                  <img src="assets/Pictures/ciduadminlogob.png" class="d-flex" id="end" width="320" height="80" href=""> 
+                </li>
+              </ul>
+            </div>
+              <div class="container-fluid bg-dark text-center p-3">
+                <button class="bg-dark text-center" aria-label="Profile" id="Bdown" title="PERFIL" routerLink="/CIDUadminprofile">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="button bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                  </svg>
+                </button> 
+                <button class="bg-dark text-center" aria-label="Profile" id="Bdown" title="GDU" routerLink="/CIDUadmingestion">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-wide" viewBox="0 0 16 16">
+                    <path d="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434L8.932.727zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z"/>
+                  </svg>
+                </button> 
+                <button class="bg-dark text-center" aria-label="Profile" id="Bdown" title="SALIR" routerLink="/inicio">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+                </button> 
+              </div> 
+          </div>
+
+        </div>
+        
+      </nav>

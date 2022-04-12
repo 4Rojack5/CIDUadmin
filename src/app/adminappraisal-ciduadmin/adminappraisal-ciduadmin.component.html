@@ -1,0 +1,139 @@
+<app-navbar-principal></app-navbar-principal>
+<body class="fondo">
+    <section class="px-5" id="section1">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <br>
+    <div class="row align-items-center">
+        <div class="col" id="col1">
+            <img [src]="logo" id="logocidu" alt="...">
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <br>
+    </section>
+    <section>
+      <div class="container" id="titulo">
+        <p id="h1">FORMULARIO NUEVO AVALÚO</p>
+      </div>
+    </section>
+    <div class="container-fluid mb-3">
+        <div class="row align-items-center" id="rowformat">
+            <div class="col" id="col2">
+              <section>
+                  <form>
+                    <div class="row align-items-start" id="row2">
+                    <div class="col-4">
+                        <label class="form-label font-weight-bold text-sub">ESTADO: </label>
+                        <select class="form-select" id="inputGroupSelect01" name="estado">
+                          <option selected>Seleccione...</option>
+                          <option value="completo">COMPLETO</option>
+                          <option value="incompleto">INCOMPLETO</option>
+                          <option value="pendiente">PENDIENTE POR REVISAR</option>
+                        </select>
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">CLIENTE: </label>
+                        <input type="text" name="cliente" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese cliente.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">MES: </label>
+                        <input type="month" name="mes" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese mes.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">CÓDIGO AVALÚO: </label>
+                        <input type="number" name="codigoa" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese código avalúo.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">TIPO DE DOCUMENTO: </label>
+                        <select class="form-select mb-2" id="inputGroupSelect01" name="tipod">
+                          <option selected>Seleccione...</option>
+                          <option value="1">C.C.</option>
+                          <option value="2">NIT</option>
+                          <option value="3">T.I.</option>
+                          <option value="3">C.E.</option>
+                        </select>
+                        <input type="number" name="numerod" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese numero documento.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">NOMBRE CLIENTE: </label>
+                        <input type="text" name="nombrec" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre del cliente.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">DIRECCIÓN: </label>
+                        <input type="text" name="direccionav" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese dirección del avalúo.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">CONJUNTO/BARRIO: </label>
+                        <input type="text" name="barrio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese conjunto/barrio.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">CIUDAD: </label>
+                        <input type="text" name="ciudad" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese ciudad.">
+                        <br>
+                      </div>
+                      <div class="col-4">
+
+                        <label class="form-label font-weight-bold text-sub">CONTACTO: </label>
+                        <input type="text" name="contacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese contacto.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">TEL CONTACTO: </label>
+                        <input type="number" name="telcontacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese telefono contacto.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">FECHA DE ASIGNACIÓN: </label>
+                        <input type="date" name="fechaasig" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de asignación.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">FECHA DE AGENDAMIENTO: </label>
+                        <input type="date" name="fechaagen" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de agendamiento.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">FECHA DE VISITA: </label>
+                        <input type="date" name="fechavis" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de visita.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">HORA DE VISITA: </label>
+                        <input type="time" name="fechaagen" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese hora de visita.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">VISITADOR: </label>
+                        <input type="text" name="visitador" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre visitador.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">PAGO VISITADOR: </label>
+                        <input type="number" name="pagovisi" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese pago visitador.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">OBSERVACIONES DE GESTIÓN: </label>
+                        <textarea class="form-control bg-dark-x text-dark border-0" name="observaciones" id="textarea" rows="3" placeholder="Ingrese observaciones."></textarea>
+                        <br>
+                      </div>
+                      <div class="col-4">
+                        <label class="form-label font-weight-bold text-sub">FUA: </label>
+                        <input type="text" name="fua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fua.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">REVISIÓN FUA MERCADO: </label>
+                        <input type="text" name="revisionfua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese revisión fua.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">FECHA ENVÍO INFORME: </label>
+                        <input type="date" name="fechaenvio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de envío informe.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">VALOR DE AVALÚO: </label>
+                        <input type="number" name="valoravaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese valor de avalúo.">
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">URBANO/RURAL: </label>
+                        <select class="form-select" id="inputGroupSelect01" name="sitio">
+                          <option selected>Seleccione...</option>
+                          <option value="urbano">URBANO</option>
+                          <option value="rural">RURAL</option>
+                          <option value="convencionado">CONVENCIONADO</option>
+                          <option value="urcon">URBANO-CONVENCIONADO</option>
+                          <option value="rucon">RURAL-CONVENCIONADO</option>
+                        </select>
+                        <br>
+                        <label class="form-label font-weight-bold text-sub">TIPO DE AVALÚO: </label>
+                        <input type="text" name="tipoavaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese tipo de avalúo.">
+                        <br>
+                        <section>
+                          <div class="d-flex align-items-center" id="alerta">
+                            <button class="boton w-100 text-sub" type="submit"><span>Enviar Avalúo</span></button>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </form>
+              </section>
+            </div>
+          </div>
+    </div>
+</body>
+<app-footer></app-footer>

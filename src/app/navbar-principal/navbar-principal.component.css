@@ -1,0 +1,65 @@
+#titulo{
+    font-family: "gothicB";
+    margin-left: 15px;
+}
+.navbar{
+    background-color: #525252;
+}
+.navbar-toggler{
+    background-color: #525252;
+}
+.offcanvas-header{
+    background-color: #294374;
+}
+.offcanvas-body{
+    background-color: #2c4470e6;
+}
+#end{
+    justify-content: flex-end;
+    font-family: "gothicB";
+    margin-left: 15px;
+}
+.dropdown{
+    list-style: none;
+    font-family: "gothic";
+}
+#offcanvasNavbar{
+    font-family: "gothic";
+}
+#offcanvasNavbarDropdown{
+    font-family: "gothic";
+    color: rgb(255, 255, 255);
+    text-decoration: double;
+}
+.offcanvas-title{
+    text-align: center;
+}
+.navbar-toggler{
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+}
+#paddel{
+    justify-content: center;
+    display: flex;
+    font-family: "gothicB";
+    font-size: 25px;
+  }
+#abutton{
+    cursor: pointer;
+    transition: .9s ease all;
+    border-radius: 12px;
+}
+  #abutton:hover{
+  background: #334f91;
+  }
+#Bdown{
+    background: none;
+    border-radius: 100%;
+    transition: .6s ease all;
+    border: #294374;
+}

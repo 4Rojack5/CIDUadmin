@@ -1,0 +1,51 @@
+:root{
+    --dark: #4e43438a;
+    --dark-x: #1e2126;
+    --light: #ffffff;  
+}
+body{
+    font-weight: 300;
+    color: var(--light);
+    overflow-x: hidden;
+}
+.fondo {
+    background-color: #294374;
+}
+.text{
+    color: #ffffff;
+    font-family: "gothic";
+}
+.text-sub{
+    color: #ffffff;
+    font-family: "gothic";
+}
+.text-section{
+    color: #294374;
+	color: #fff;
+	position: relative
+}
+#img2:before{
+    content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.bg-dark-x{
+    background-color: #B3B6B7;
+}
+.form-control, .btn{
+    min-height: 3.125rem;
+    line-height: initial;
+}
+.row{
+    display: flex;
+}
+section{
+    height: 774px;
+}
+#pad{
+    margin-top: 50px;
+}

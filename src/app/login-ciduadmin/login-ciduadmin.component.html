@@ -1,0 +1,48 @@
+<app-navbar-login></app-navbar-login>
+<body class="fondo">
+    <section>
+      <div class="row g-4 no-gutters">
+        <div class="col-lg-7">
+            <ngb-carousel>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper" id="img2" style="max-height: 1000px !important;">
+                  <img [src]="section1" alt="Random first slide">
+                </div>
+                <div class="carousel-caption">
+                   <h3 class="text-section">Bienvenido a CIDUadmin</h3>
+                   <p class="text-section">La aplicacion de Avaluos mas Optima del mercado</p>
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper" id="img2" style="max-height: 1000px !important;">
+                    <img [src]="section2" alt="Random second slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3 class="text-section">¡Evita las hojas de calculo!</h3>
+                    <p class="text-section">Consulta tu registro de avaluos de manera mas eficiente</p>
+                  </div>
+               </ng-template>
+              </ngb-carousel>           
+          </div> 
+          <div class="col-lg-5 d-flex flex-column align-items-end min-vh-100" id="pad" style="padding-left: 1px; padding-right: 1px;">
+            <div class="px-5 py-lg-4 w-100 d-flex flex-column mb-auto align-self-left" style="padding-left: 1px; padding-right: 1px;">
+              <h1 class="text text-center">Consultoria de Ingenieria & Desarrollo Urbano</h1>
+              <h1 class="text mb-4 mt-4 text-center">Bienvenido</h1>
+                <form>
+                  <div class="mb-4">
+                    <label for="exampleInputEmail1" class="form-label font-weight-bold text-sub">Usuario</label>
+                    <input type="text" [(ngModel)]="user" name="User" class="form-control bg-dark-x text-dark border-0" placeholder="Ingresa tu Usuario">
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label font-weight-bold text-sub">Contraseña</label>
+                    <input type="password" [(ngModel)]="password" name="Password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña">
+                    <a href="#" id="emailHelp" class="form-text text-muted text-decoration-none">¿Has olvidado tu contraseña?</a>
+                  </div>
+                    <button type="submit" (click)="UserAccess()" class="btn btn-primary w-100 text-sub">Iniciar Sesión</button>
+                </form>
+             </div>
+         </div>
+      </div>
+    </section>
+  </body>
+<app-footer></app-footer>

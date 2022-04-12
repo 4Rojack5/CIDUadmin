@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+    font-family: "bell";
+    src: local("bell") url(./assets/Fonts/Bell.otf) format("truetype");
+}
+@font-face {
+    font-family: assassins;
+    src: url(./assets/Fonts/Assassin.ttf) format("truetype");
+}
+@font-face {
+    font-family: shot;
+    src: url(./assets/Fonts/Shot.ttf) format("truetype");
+}
+@font-face {
+    font-family: "slice";
+    src: url(./assets/Fonts/Slice.otf) format("truetype");
+}
+@font-face {
+    font-family: "romanica";
+    src: url(./assets/Fonts/Romanica.ttf) format("truetype");
+}
+@font-face {
+    font-family: "tommy";
+    src: url(./assets/Fonts/Tommy.otf) format("truetype");
+}
+@font-face {
+    font-family: "gothic";
+    src: url(./assets/Fonts/Gothic.TTF) format("truetype");
+}
+@font-face {
+    font-family: "gothicB";
+    src: url(./assets/Fonts/GothicB.TTF) format("truetype");
+}
