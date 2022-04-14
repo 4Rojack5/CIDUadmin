@@ -24,25 +24,39 @@
                </ng-template>
               </ngb-carousel>           
           </div> 
-          <div class="col-lg-5 d-flex flex-column align-items-end min-vh-100" id="pad" style="padding-left: 1px; padding-right: 1px;">
+          <div class="contenedor col-lg-5 d-flex flex-column align-items-end min-vh-100" id="pad" style="padding-left: 1px; padding-right: 1px;">
             <div class="px-5 py-lg-4 w-100 d-flex flex-column mb-auto align-self-left" style="padding-left: 1px; padding-right: 1px;">
-              <h1 class="text text-center">Consultoria de Ingenieria & Desarrollo Urbano</h1>
-              <h1 class="text mb-4 mt-4 text-center">Bienvenido</h1>
-                <form>
+              <h1 class="text text-center">Consultoría de Ingeniería & Desarrollo Urbano</h1>
+              <h1 class="text mb-4 mt-4 text-center">¡Bienvenido!</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label font-weight-bold text-sub">Usuario</label>
-                    <input type="text" [(ngModel)]="user" name="User" class="form-control bg-dark-x text-dark border-0" placeholder="Ingresa tu Usuario">
+                    <input type="text" formControlName="user" class="form-control bg-dark-x text-dark border-0" [placeholder]="usuario">
+                    <span class="text-warning" 
+                      *ngIf="loginForm.get('user')?.hasError('required') && loginForm.get('user')?.touched">
+                      El correo <span class="alerta">es requerido</span>
+                    </span>
+                    <span class="text-warning" *ngIf="loginForm.get('user')?.hasError('email') && loginForm.get('user')?.touched">
+                      Correo <span class="alerta">invalido</span>
+                    </span>
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label font-weight-bold text-sub">Contraseña</label>
-                    <input type="password" [(ngModel)]="password" name="Password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña">
-                    <a href="#" id="emailHelp" class="form-text text-muted text-decoration-none">¿Has olvidado tu contraseña?</a>
+                    <input type="password" formControlName="password" name="Password" class="form-control bg-dark-x border-0" [placeholder]="contrasena">
+                    <span class="text-warning" 
+                      *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                      El password <span class="alerta">es requerido</span>
+                    </span>
                   </div>
-                    <button type="submit" (click)="UserAccess()" class="btn btn-primary w-100 text-sub">Iniciar Sesión</button>
+                  <div>
+                    <a class="link" routerLink="/forgotCIDUadmin" id="emailHelp">¿Has olvidado tu contraseña?</a>
+                  </div>
+                  <br>
+                    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary w-100 text-sub">Iniciar Sesión</button>
                 </form>
              </div>
          </div>
       </div>
     </section>
   </body>
-<app-footer></app-footer>
+  <app-footer></app-footer>

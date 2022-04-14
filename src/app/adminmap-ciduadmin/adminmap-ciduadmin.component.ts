@@ -33,9 +33,9 @@ export class AdminmapCiduadminComponent implements OnInit {
   constructor(private marcadoresService:MarcadoresService) { 
     this.lat = 4.656453;
     this.lng = -74.122186;
-    this.zoom = 11.2;
+    this.zoom = 12;
     this.mapTypeId = 'hybrid';
-    this.animation = "'DROP'";
+    this.animation = "'BOUNCE'";
     this.located = false;
     this.zoomControl = true;
     this.scaleControl = true;
@@ -60,10 +60,10 @@ export class AdminmapCiduadminComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(position =>{
       this.lat = 4.656453;
       this.lng = -74.122186;
-      this.zoom = 11.2;
+      this.zoom = 12;
       this.mapTypeId = 'hybrid';
       this.located = false;
-      this.animation = "'DROP'";
+      this.animation = "'BOUNCE'";
     })
   }
  

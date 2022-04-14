@@ -1,0 +1,12 @@
+.fondo {
+    background-color: #294374;
+    color: var(--dark-x);
+    overflow-x: hidden;
+    
+  }
+.container{
+    height: 60vh;
+}
+.row{
+    margin-top: 142px;
+}

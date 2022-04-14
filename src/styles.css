@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+.titulo{
+    font-family: 'Montserrat', 'sans-serif';
+}
 
 @font-face {
     font-family: "bell";

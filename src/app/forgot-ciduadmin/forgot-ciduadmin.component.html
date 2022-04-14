@@ -1,0 +1,30 @@
+<app-navbar-login></app-navbar-login>
+<body class="fondo">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+             <div class="card">
+                <div class="card-body">
+                    <h1 class="text mb-4 mt-4 text-center">Recuperar Password</h1>
+                    <form [formGroup]="recuperarForm" (ngSubmit)="recuperarPassword()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="user" class="form-control form-control-lg" placeholder = "Ingresa tu correo">
+                            <div class="text-danger" 
+                            *ngIf="recuperarForm.get('user')?.hasError('required') && recuperarForm.get('user')?.touched">
+                            El correo <strong>es obligatorio</strong>
+                            </div>
+                            <div class="text-danger" 
+                            *ngIf="recuperarForm.get('user')?.hasError('email') && recuperarForm.get('user')?.touched">
+                            Correo <strong>invalido</strong>
+                            </div>
+                        </div>
+                    <button routerLink="/loginCIDUadmin" class="btn btn-secondary btn-lg">Volver</button>
+                    <button type ="submit" [disabled] ="recuperarForm.invalid" class="btn btn-primary btn-lg float-end">Aceptar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<app-footer></app-footer>

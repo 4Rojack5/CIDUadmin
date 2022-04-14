@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,27 +10,23 @@ import { Router } from '@angular/router';
 })
 export class LoginCiduadminComponent implements OnInit {
 
-  constructor(    
-    private http:HttpClient,
-    private router:Router
-    ) { }
-
-    user = "";
+  user = "";
+    usuario = "Ingresa tu usuario"; //Uso de Property Binding
     password = "";
+    contrasena ="Ingresa tu contraseña"; //Uso de Property Binding
+    error = false;   //Uso de two way data-binding
     url = "http://localhost:8012/APPraisalDB/loginDB.php"
+    loginForm: FormGroup;
 
-    UserAccess(){
-    //console.log(this.user);
-    //console.log(this.password);
-    const loginDB = { "user":this.user, "password":this.password }
-    this.http.post(this.url, JSON.stringify(loginDB)).subscribe(data=>{
-      if(data == 1){
-        this.router.navigate(["/adminpanel-ciduadmin"]);
-      }
-      else{
-        console.log("Prueba incorrecta por consola");
-      }
-    })
+    constructor( private fb: FormBuilder ){ 
+      this.loginForm = this.fb.group({
+        user: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required],
+      })
+    }
+
+    login(){
+      console.log(this.loginForm);
     }
 
   ngOnInit(): void {

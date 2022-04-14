@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -20,12 +20,15 @@ import { AdminappraisalCiduadminComponent } from './adminappraisal-ciduadmin/adm
 import { LoginCiduadminComponent } from './login-ciduadmin/login-ciduadmin.component';
 import { ProfileCiduadminComponent } from './profile-ciduadmin/profile-ciduadmin.component';
 import { AdminratesCiduadminComponent } from './adminrates-ciduadmin/adminrates-ciduadmin.component';
+import { ForgotCiduadminComponent } from './forgot-ciduadmin/forgot-ciduadmin.component';
+import { VerificationemailCiduadminComponent } from './verificationemail-ciduadmin/verificationemail-ciduadmin.component';
 
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: '/inicio', pathMatch: 'full', 
+
+  {
+    path: '',
+    component: InicioComponent,
   },
   {
     path: 'inicio',
@@ -63,6 +66,18 @@ const routes: Routes = [
     path: 'CIDUadminrates',
     component: AdminratesCiduadminComponent,
   },
+  {
+    path: 'forgotCIDUadmin',
+    component: ForgotCiduadminComponent,
+  },
+  {
+    path: 'verificationCIDUadmin',
+    component: VerificationemailCiduadminComponent,
+  },
+  { 
+    path: '**', 
+    redirectTo: '/inicio', pathMatch: 'full', 
+  },
 ]
 @NgModule({
   declarations: [
@@ -78,7 +93,9 @@ const routes: Routes = [
     AdminappraisalCiduadminComponent,
     LoginCiduadminComponent,
     ProfileCiduadminComponent,
-    AdminratesCiduadminComponent
+    AdminratesCiduadminComponent,
+    ForgotCiduadminComponent,
+    VerificationemailCiduadminComponent
   ],
   imports: [
 
@@ -90,6 +107,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     ],
     exports: [

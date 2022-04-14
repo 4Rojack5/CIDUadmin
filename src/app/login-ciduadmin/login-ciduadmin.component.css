@@ -49,3 +49,20 @@ section{
 #pad{
     margin-top: 50px;
 }
+/*Se agrega flex para que el login sea responsive*/
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*Se agregan estilos al link de recuperar password*/
+.link{
+    text-decoration: none;
+    color: white;
+}
+/*Se agregan estilos al alerta*/
+.alerta{
+    font-weight: bold;
+}
