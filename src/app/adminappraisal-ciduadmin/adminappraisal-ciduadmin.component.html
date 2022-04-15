@@ -24,7 +24,7 @@
         <div class="row align-items-center" id="rowformat">
             <div class="col" id="col2">
               <section>
-                  <form>
+                  <form  [formGroup]="formulariores" (ngSubmit)="enviarDatos()">
                     <div class="row align-items-start" id="row2">
                     <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">ESTADO: </label>
@@ -56,19 +56,42 @@
                         <br>
                         <label class="form-label font-weight-bold text-sub">NOMBRE CLIENTE: </label>
                         <input type="text" name="nombrec" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre del cliente.">
-                        <br>
+                        <hr>
                         <label class="form-label font-weight-bold text-sub">DIRECCIÓN: </label>
-                        <input type="text" name="direccionav" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese dirección del avalúo.">
+                        <input type="text" name="dir" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese dirección del avalúo." id="dir" formControlName="direccion">
                         <br>
+                        <div class="input-group mb-3">
+                        <input type="text" name="ciu" class="form-control" id="ciu" placeholder="Ciudad." formControlName="ciudad">
+                        <span class="input-group-text text-dark">,</span>
+                        <input id="typeahead-basic" name="dep" type="text" class="form-control" id="dep" placeholder="Departamento."  formControlName="departamento" [ngbTypeahead]="search"/>
+                        </div>
+                        <button class="btn btn-primary w-100 text-sub mb-3" type="submit"><span>validar Dirección</span></button>
+                        
+                        <textarea class="w-100" formControlName="resultado" name="res" id="res" readonly></textarea>
+
+                        <br>
+                        <div class="row">
+                          <div class="col">
+                          <label class="form-label font-weight-bold text-sub">LATITUD: </label>
+                          </div>
+                        <div class="col">
+                          <label class="form-label font-weight-bold text-sub">LONGITUD: </label>
+                          </div>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text" aria-label="Disabled input" disabled>
+                          <span class="input-group-text text-dark">|</span>
+                          <input class="form-control" type="text" aria-label="Disabled input" disabled>
+                        </div>
+                        <hr>
+                      </div>
+                      <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">CONJUNTO/BARRIO: </label>
                         <input type="text" name="barrio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese conjunto/barrio.">
                         <br>
                         <label class="form-label font-weight-bold text-sub">CIUDAD: </label>
                         <input type="text" name="ciudad" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese ciudad.">
                         <br>
-                      </div>
-                      <div class="col-4">
-
                         <label class="form-label font-weight-bold text-sub">CONTACTO: </label>
                         <input type="text" name="contacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese contacto.">
                         <br>
@@ -93,11 +116,12 @@
                         <label class="form-label font-weight-bold text-sub">PAGO VISITADOR: </label>
                         <input type="number" name="pagovisi" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese pago visitador.">
                         <br>
+
+                      </div>
+                      <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">OBSERVACIONES DE GESTIÓN: </label>
                         <textarea class="form-control bg-dark-x text-dark border-0" name="observaciones" id="textarea" rows="3" placeholder="Ingrese observaciones."></textarea>
                         <br>
-                      </div>
-                      <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">FUA: </label>
                         <input type="text" name="fua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fua.">
                         <br>

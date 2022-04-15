@@ -3,4 +3,5 @@ export class Ubi{
     ubicacion!:String;
     latitud!:String;
     longitud!:String;
+    res!:String;
 }

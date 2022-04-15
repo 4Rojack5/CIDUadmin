@@ -28,6 +28,10 @@
             <div class="px-5 py-lg-4 w-100 d-flex flex-column mb-auto align-self-left" style="padding-left: 1px; padding-right: 1px;">
               <h1 class="text text-center">Consultoría de Ingeniería & Desarrollo Urbano</h1>
               <h1 class="text mb-4 mt-4 text-center">¡Bienvenido!</h1>
+              <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+                <app-spinner></app-spinner>
+              </div>
+              <div *ngIf="!loading">
                 <form [formGroup]="loginForm" (ngSubmit)="login()">
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label font-weight-bold text-sub">Usuario</label>
@@ -54,6 +58,7 @@
                   <br>
                     <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary w-100 text-sub">Iniciar Sesión</button>
                 </form>
+              </div>
              </div>
          </div>
       </div>

@@ -6,7 +6,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Componentes
 import { AppComponent } from './app.component';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { NavbarPrincipalComponent } from './navbar-principal/navbar-principal.component';
@@ -22,7 +29,7 @@ import { ProfileCiduadminComponent } from './profile-ciduadmin/profile-ciduadmin
 import { AdminratesCiduadminComponent } from './adminrates-ciduadmin/adminrates-ciduadmin.component';
 import { ForgotCiduadminComponent } from './forgot-ciduadmin/forgot-ciduadmin.component';
 import { VerificationemailCiduadminComponent } from './verificationemail-ciduadmin/verificationemail-ciduadmin.component';
-
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const routes: Routes = [
 
@@ -95,7 +102,8 @@ const routes: Routes = [
     ProfileCiduadminComponent,
     AdminratesCiduadminComponent,
     ForgotCiduadminComponent,
-    VerificationemailCiduadminComponent
+    VerificationemailCiduadminComponent,
+    SpinnerComponent
   ],
   imports: [
 
@@ -109,6 +117,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
     ],
     exports: [
     RouterModule
