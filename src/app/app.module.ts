@@ -30,6 +30,7 @@ import { AdminratesCiduadminComponent } from './adminrates-ciduadmin/adminrates-
 import { ForgotCiduadminComponent } from './forgot-ciduadmin/forgot-ciduadmin.component';
 import { VerificationemailCiduadminComponent } from './verificationemail-ciduadmin/verificationemail-ciduadmin.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
 
@@ -106,10 +107,9 @@ const routes: Routes = [
     SpinnerComponent
   ],
   imports: [
-
     GoogleMapsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDNjetUNp5vGVZkSeYt2gxm-7ct-1ppyow'
+      apiKey: 'AIzaSyD0wrxzoehl95y2FWN8YWVJSahb4dY_ols'
     }),
     BrowserModule,
     HttpClientModule,
@@ -117,6 +117,13 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    RouterModule.forRoot([
+      {
+        path: 'CIDUadminpanel',
+        component: AdminpanelCiduadminComponent,
+        canActivate: [AuthenticationGuard]
+      }
+    ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ToastrModule.forRoot(),
@@ -125,7 +132,7 @@ const routes: Routes = [
     exports: [
     RouterModule
     ],
-  providers: [],
+  providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

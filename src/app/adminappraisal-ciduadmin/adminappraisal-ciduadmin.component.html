@@ -65,10 +65,8 @@
                         <span class="input-group-text text-dark">,</span>
                         <input id="typeahead-basic" name="dep" type="text" class="form-control" id="dep" placeholder="Departamento."  formControlName="departamento" [ngbTypeahead]="search"/>
                         </div>
-                        <button class="btn btn-primary w-100 text-sub mb-3" type="submit"><span>validar Dirección</span></button>
-                        
+                        <button class="btn btn-primary w-100 text-sub mb-3" type="submit"><span>Ingresar Dirección</span></button>
                         <textarea class="w-100" formControlName="resultado" name="res" id="res" readonly></textarea>
-
                         <br>
                         <div class="row">
                           <div class="col">
@@ -79,9 +77,9 @@
                           </div>
                         </div>
                         <div class="input-group mb-3">
-                          <input class="form-control" type="text" aria-label="Disabled input" disabled>
+                          <input class="form-control" type="text" formControlName="latitud" readonly>
                           <span class="input-group-text text-dark">|</span>
-                          <input class="form-control" type="text" aria-label="Disabled input" disabled>
+                          <input class="form-control" type="text" formControlName="longitud" readonly>
                         </div>
                         <hr>
                       </div>

@@ -3,7 +3,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from 'src/app/servicio/error.service';
 
@@ -12,7 +12,9 @@ import { ErrorService } from 'src/app/servicio/error.service';
   templateUrl: './login-ciduadmin.component.html',
   styleUrls: ['./login-ciduadmin.component.css']
 })
+
 export class LoginCiduadminComponent implements OnInit {
+
 
     user = "";
     usuario = "Ingresa tu usuario"; //Uso de Property Binding
