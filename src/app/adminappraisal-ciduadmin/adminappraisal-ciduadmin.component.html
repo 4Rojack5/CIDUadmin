@@ -1,34 +1,32 @@
 <app-navbar-principal></app-navbar-principal>
 <body class="fondo">
     <section class="px-5" id="section1">
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
       <br>
     <div class="row align-items-center">
         <div class="col" id="col1">
             <img [src]="logo" id="logocidu" alt="...">
         </div>
     </div>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
       <br>
     </section>
     <section>
       <div class="container" id="titulo">
         <p id="h1">FORMULARIO NUEVO AVALÚO</p>
-      </div>
+      </div>  
     </section>
+    <div *ngIf = "mostrarError" class="alert alert-danger text-center" role="alert">
+      POR FAVOR INGRESE TODOS LOS CAMPOS
+    </div>
     <div class="container-fluid mb-3">
         <div class="row align-items-center" id="rowformat">
-            <div class="col" id="col2">
-              <section>
-                  <form  [formGroup]="formulariores" (ngSubmit)="enviarDatos()">
+            <div class="col" id="col2" >
+              <section> 
+                  <form [formGroup]="formulariores">
                     <div class="row align-items-start" id="row2">
-                    <div class="col-4">
-                        <label class="form-label font-weight-bold text-sub">ESTADO: </label>
-                        <select class="form-select" id="inputGroupSelect01" name="estado">
+                    <div class="col-4"> <!--*ngIf="!loading" para mejorar la UX-->
+                        <label class= "form-label font-weight-bold text-sub">ESTADO: </label>
+                        <select class="form-select" id="inputGroupSelect01" formControlName="estado" placement="top"
+                        ngbTooltip="Estado del avalúo">
                           <option selected>Seleccione...</option>
                           <option value="completo">COMPLETO</option>
                           <option value="incompleto">INCOMPLETO</option>
@@ -36,37 +34,39 @@
                         </select>
                         <br>
                         <label class="form-label font-weight-bold text-sub">CLIENTE: </label>
-                        <input type="text" name="cliente" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese cliente.">
+                        <input type="text" formControlName="cliente" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese cliente">
                         <br>
                         <label class="form-label font-weight-bold text-sub">MES: </label>
-                        <input type="month" name="mes" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese mes.">
+                        <input type="month" formControlName="mes" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese mes">
                         <br>
                         <label class="form-label font-weight-bold text-sub">CÓDIGO AVALÚO: </label>
-                        <input type="number" name="codigoa" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese código avalúo.">
+                        <input type="text" formControlName="idavaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese código avalúo">
                         <br>
                         <label class="form-label font-weight-bold text-sub">TIPO DE DOCUMENTO: </label>
-                        <select class="form-select mb-2" id="inputGroupSelect01" name="tipod">
+                        <select class="form-select mb-2" id="inputGroupSelect01" formControlName="tipodocumento">
                           <option selected>Seleccione...</option>
                           <option value="1">C.C.</option>
                           <option value="2">NIT</option>
                           <option value="3">T.I.</option>
                           <option value="3">C.E.</option>
                         </select>
-                        <input type="number" name="numerod" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese numero documento.">
+                        <input type="number" formControlName="identificacion" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese numero documento">
                         <br>
                         <label class="form-label font-weight-bold text-sub">NOMBRE CLIENTE: </label>
-                        <input type="text" name="nombrec" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre del cliente.">
+                        <input type="text" formControlName="nombreCliente" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre del cliente">
                         <hr>
                         <label class="form-label font-weight-bold text-sub">DIRECCIÓN: </label>
-                        <input type="text" name="dir" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese dirección del avalúo." id="dir" formControlName="direccion">
+                        <input type="text" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese dirección del avalúo" id="dir" formControlName="direccion" placement="top" ngbTooltip="Campos validos de dirección: Calle, Carrera, Avenida, Avenida Carrera Transversal, Diagonal, Circular o nombre especifico. Ejemplo: Calle 68 sur # 24-76">
                         <br>
                         <div class="input-group mb-3">
-                        <input type="text" name="ciu" class="form-control" id="ciu" placeholder="Ciudad." formControlName="ciudad">
+                        <input type="text" class="form-control" id="ciu" placeholder="Ciudad" formControlName="ciudad" placement="top" ngbTooltip="Ciudad de Colombia. Ejemplo: Bogotá">
                         <span class="input-group-text text-dark">,</span>
-                        <input id="typeahead-basic" name="dep" type="text" class="form-control" id="dep" placeholder="Departamento."  formControlName="departamento" [ngbTypeahead]="search"/>
+                        <input id="typeahead-basic" type="text" class="form-control" id="dep" placeholder="Departamento"  formControlName="departamento" placement="top" ngbTooltip="Departamento de Colombia. Ejemplo: Cundinamarca" [ngbTypeahead]="search"/>
+                        
                         </div>
-                        <button class="btn btn-primary w-100 text-sub mb-3" type="submit"><span>Ingresar Dirección</span></button>
-                        <textarea class="w-100" formControlName="resultado" name="res" id="res" readonly></textarea>
+                        <!-- <textarea class="w-100" formControlName="detallesdir" name="res" id="res" placeholder="Ingrese detalles de la dirección" placement="top" ngbTooltip="Detalles de la dirreción. Ejemplo: Torre 2 Etapa 2 10 Piso Apto 1011"></textarea> -->
+                        <button class="btn btn-primary w-100 text-sub mb-3" type="submit" (click)="validarDireccion()"><span>Ingresar Dirección</span></button>
+                        <textarea class="w-100" formControlName="ubicacion" name="res" id="res" placement="top" ngbTooltip="Muestra la dirección valida." readonly></textarea>
                         <br>
                         <div class="row">
                           <div class="col">
@@ -77,63 +77,63 @@
                           </div>
                         </div>
                         <div class="input-group mb-3">
-                          <input class="form-control" type="text" formControlName="latitud" readonly>
+                          <input class="form-control" type="text" formControlName="latitud" placement="top" ngbTooltip="Latitud de la dirección." readonly>
                           <span class="input-group-text text-dark">|</span>
-                          <input class="form-control" type="text" formControlName="longitud" readonly>
+                          <input class="form-control" type="text" formControlName="longitud" placement="top" ngbTooltip="Longitud de la dirección." readonly>
                         </div>
                         <hr>
                       </div>
                       <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">CONJUNTO/BARRIO: </label>
-                        <input type="text" name="barrio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese conjunto/barrio.">
+                        <input type="text" formControlName="barrio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese conjunto/barrio">
                         <br>
                         <label class="form-label font-weight-bold text-sub">CIUDAD: </label>
-                        <input type="text" name="ciudad" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese ciudad.">
+                        <input type="text" formControlName="ciudadAvaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese ciudad">
                         <br>
                         <label class="form-label font-weight-bold text-sub">CONTACTO: </label>
-                        <input type="text" name="contacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese contacto.">
+                        <input type="text" formControlName="contacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese contacto">
                         <br>
-                        <label class="form-label font-weight-bold text-sub">TEL CONTACTO: </label>
-                        <input type="number" name="telcontacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese telefono contacto.">
+                        <label class="form-label font-weight-bold text-sub">TELÉFONO CONTACTO: </label>
+                        <input type="number" formControlName="telefonoContacto" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese telefono contacto">
                         <br>
                         <label class="form-label font-weight-bold text-sub">FECHA DE ASIGNACIÓN: </label>
-                        <input type="date" name="fechaasig" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de asignación.">
+                        <input type="date" formControlName="fechaAsignacion" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de asignación">
                         <br>
                         <label class="form-label font-weight-bold text-sub">FECHA DE AGENDAMIENTO: </label>
-                        <input type="date" name="fechaagen" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de agendamiento.">
+                        <input type="date" formControlName="fechaAgendamiento" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de agendamiento">
                         <br>
                         <label class="form-label font-weight-bold text-sub">FECHA DE VISITA: </label>
-                        <input type="date" name="fechavis" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de visita.">
+                        <input type="date" formControlName="fechaVisita" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de visita">
                         <br>
                         <label class="form-label font-weight-bold text-sub">HORA DE VISITA: </label>
-                        <input type="time" name="fechaagen" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese hora de visita.">
+                        <input type="time" formControlName="horaVisita" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese hora de visita">
                         <br>
                         <label class="form-label font-weight-bold text-sub">VISITADOR: </label>
-                        <input type="text" name="visitador" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre visitador.">
+                        <input type="text" formControlName="visitador" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese nombre visitador">
                         <br>
                         <label class="form-label font-weight-bold text-sub">PAGO VISITADOR: </label>
-                        <input type="number" name="pagovisi" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese pago visitador.">
-                        <br>
+                        <input type="number" formControlName="pagoVisitador" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese pago visitador">
+                        <hr>
 
                       </div>
                       <div class="col-4">
                         <label class="form-label font-weight-bold text-sub">OBSERVACIONES DE GESTIÓN: </label>
-                        <textarea class="form-control bg-dark-x text-dark border-0" name="observaciones" id="textarea" rows="3" placeholder="Ingrese observaciones."></textarea>
+                        <textarea class="form-control bg-dark-x text-dark border-0" formControlName="observaciones" id="textarea" rows="3" placeholder="Ingrese observaciones"></textarea>
                         <br>
                         <label class="form-label font-weight-bold text-sub">FUA: </label>
-                        <input type="text" name="fua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fua.">
+                        <input type="text" formControlName="fua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fua">
                         <br>
                         <label class="form-label font-weight-bold text-sub">REVISIÓN FUA MERCADO: </label>
-                        <input type="text" name="revisionfua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese revisión fua.">
+                        <input type="text" formControlName="revisionFua" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese revisión fua">
                         <br>
                         <label class="form-label font-weight-bold text-sub">FECHA ENVÍO INFORME: </label>
-                        <input type="date" name="fechaenvio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de envío informe.">
+                        <input type="date" formControlName="fechaEnvio" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese fecha de envío informe">
                         <br>
                         <label class="form-label font-weight-bold text-sub">VALOR DE AVALÚO: </label>
-                        <input type="number" name="valoravaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese valor de avalúo.">
+                        <input type="number" formControlName="valorAvaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese valor de avalúo">
                         <br>
                         <label class="form-label font-weight-bold text-sub">URBANO/RURAL: </label>
-                        <select class="form-select" id="inputGroupSelect01" name="sitio">
+                        <select class="form-select" id="inputGroupSelect01" formControlName="sitio" placement="top" ngbTooltip="Elegir zona del terreno.">
                           <option selected>Seleccione...</option>
                           <option value="urbano">URBANO</option>
                           <option value="rural">RURAL</option>
@@ -143,11 +143,14 @@
                         </select>
                         <br>
                         <label class="form-label font-weight-bold text-sub">TIPO DE AVALÚO: </label>
-                        <input type="text" name="tipoavaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese tipo de avalúo.">
-                        <br>
+                        <input type="text" formControlName="tipoAvaluo" class="form-control bg-dark-x text-dark border-0" placeholder="Ingrese tipo de avalúo">
+                        <hr>
                         <section>
                           <div class="d-flex align-items-center" id="alerta">
-                            <button class="boton w-100 text-sub" type="submit"><span>Enviar Avalúo</span></button>
+                            <button class="boton w-100 text-sub" type="submit" (click)="validarFormulario()"><span>Enviar Avalúo</span></button>
+                          </div>
+                          <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+                            <app-spinner></app-spinner>
                           </div>
                         </section>
                       </div>
@@ -156,6 +159,9 @@
               </section>
             </div>
           </div>
+    </div>                        
+    <div *ngIf = "mostrarError" class="alert alert-danger text-center" role="alert">
+      POR FAVOR INGRESE TODOS LOS CAMPOS
     </div>
 </body>
 <app-footer></app-footer>

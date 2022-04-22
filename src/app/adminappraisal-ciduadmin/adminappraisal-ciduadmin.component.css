@@ -37,7 +37,7 @@
     border-radius: 10px;
   }
   #alerta{
-    height: 305px;
+    height: 100px;
   }
   #titulo{
     margin-bottom: 35px;
@@ -69,4 +69,7 @@
 }
 .boton:hover{
     background: #294374;
+}
+textarea{
+  border-radius: 10px;
 }

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminratesCiduadminComponent implements OnInit {
 
+  logo:string = '../assets/Pictures/LogoNombre.png';
+
   constructor() { }
 
   ngOnInit(): void {

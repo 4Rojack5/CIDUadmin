@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Routes } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from 'src/app/servicio/error.service';
+import { User } from '../interfaces/User';
 
 @Component({
   selector: 'app-login-ciduadmin',
@@ -21,7 +22,6 @@ export class LoginCiduadminComponent implements OnInit {
     password = "";
     contrasena ="Ingresa tu contraseña"; //Uso de Property Binding
     error = false;   //Uso de two way data-binding
-    url = "http://localhost:8012/APPraisalDB/loginDB.php"
     loginForm: FormGroup;
     loading  = false;
 
@@ -45,6 +45,7 @@ export class LoginCiduadminComponent implements OnInit {
       this.afAuth.signInWithEmailAndPassword(usuario, password).then( respuesta => {
         console.log(respuesta);
         this.toastr.success('Ingreso exitoso', 'Usuario valido');
+        this.setLocalStorage(respuesta.user);
         this.router.navigate(['/CIDUadminpanel']);
         this.loading = false;
       }).catch( error => {
@@ -56,6 +57,16 @@ export class LoginCiduadminComponent implements OnInit {
     }
 
   ngOnInit(): void {
+  }
+
+  setLocalStorage(user: any){
+    const usuario: User = {
+      uid: user.uid,
+      email: user.email
+    }
+
+    localStorage.setItem('user', JSON.stringify(usuario));
+
   }
 
   logo:string = '../assets/Pictures/LogoNombre.png';

@@ -37,7 +37,6 @@
   }
   .card{
     background: none;
-    color: black;
   }
   .card svg{
     width: 100%;
@@ -47,6 +46,7 @@
     left: 0;
     fill: white;
     outline:none;
+    border-style: none;
   }
   .card rect{
     width: 100%;
@@ -66,9 +66,6 @@
   .card-img-top{
     width: 286px;
     height: 195px;
-    border-color: #000;
-    border-width: 1px;
-    border-style: ridge;
   }
   #separation{
     height: 150px;
