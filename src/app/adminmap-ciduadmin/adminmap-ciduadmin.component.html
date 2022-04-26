@@ -17,15 +17,20 @@
     <div class="row align-items-center">
         <div class="col pl-5 mb-3">
             <div id="map">
+              <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+                <app-spinner></app-spinner>
+                <br>
+              </div>
               <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId" [zoomControl]="zoomControl" [scaleControl]="scaleControl" [mapTypeControl]="mapTypeControl" [fullscreenControl]="fullscreenControl" [panControl]="panControl">
                   <agm-marker [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="lat" [longitude]="lng" *ngIf="located">
                     <agm-info-window>
                       <label class="text-dark">Mi posición</label>
                     </agm-info-window>
                   </agm-marker>
-                  <agm-marker *ngFor="let ubi of Marcadores; let iControl=index" [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="ubi.latitud" [longitude]="ubi.longitud">
+                  <agm-marker *ngFor ="let avaluo of historico; let i = index" [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="avaluo.latitud" [longitude]="avaluo.longitud">
                     <agm-info-window>
-                      <label class="text-dark">{{ ubi.ubicacion }}</label>
+                      <h6 class="text-dark text-center">{{ avaluo.direccion }}</h6>
+                      <label class="text-dark text-center">{{ avaluo.contacto }}</label>
                     </agm-info-window>
                   </agm-marker>
               </agm-map>

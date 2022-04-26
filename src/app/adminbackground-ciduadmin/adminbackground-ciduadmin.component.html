@@ -46,98 +46,39 @@
                         <th scope="col">TIPO DE AVALÚO</th>
                     </tr>
                 </thead>
-                <tbody>
+                <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+                  <app-spinner></app-spinner>
+                </div>
+                <tbody *ngFor ="let avaluo of historico; let i = index">
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>Rendón</td>
-                      <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                      <td>{{ i  + 1 }}</td>
+                      <td>{{ avaluo.estado }}</td>
+                      <td>{{ avaluo.cliente}}</td>
+                      <td>{{ avaluo.mes }}</td>
+                      <td>{{ avaluo.idavaluo}}</td>
+                      <td>{{ avaluo.tipodocumento }}</td>
+                      <td>{{ avaluo.identificacion }}</td>
+                      <td>{{ avaluo.nombreCliente }}</td>
+                      <td>{{ avaluo.ubicacion }}</td>
+                      <td>{{ avaluo.barrio }}</td>
+                      <td>{{ avaluo.ciudadAvaluo }}</td>
+                      <td>{{ avaluo.contacto }}</td>
+                      <td>{{ avaluo.telefonoContacto }}</td>
+                      <td>{{ avaluo.fechaAsignacion }}</td>
+                      <td>{{ avaluo.fechaAgendamiento }}</td>
+                      <td>{{ avaluo.fechaVisita }}</td>
+                      <td>{{ avaluo.horaVisita }}</td>
+                      <td>{{ avaluo.visitador }}</td>
+                      <td>$ {{ avaluo.pagoVisitador }}</td>
+                      <td>{{ avaluo.observaciones }}</td>
+                      <td>{{ avaluo.fua }}</td>
+                      <td>{{ avaluo.revisionFua }}</td>
+                      <td>{{ avaluo.fechaEnvio }}</td>
+                      <td>$ {{ avaluo.valorAvaluo }}</td>
+                      <td>{{ avaluo.sitio }}</td>
+                      <td>{{ avaluo.tipoAvaluo }}</td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rendón</td>
-                        <td>@twitter</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rendón</td>
-                        <td>@twitter</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rendón</td>
-                        <td>@twitter</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rendón</td>
-                        <td>@twitter</td>
-                      </tr>
-                  </tbody> 
+                  </tbody>
             </table>
         </div>
 </body>

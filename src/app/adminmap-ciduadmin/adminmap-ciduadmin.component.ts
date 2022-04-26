@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Avaluo } from '../models/Avaluo';
 import { MarcadoresService } from '../servicio/marcadores.service';
+import { CiduadminService } from '../servicio/ciduadmin.service';
 
 @Component({
   selector: 'app-adminmap-ciduadmin',
@@ -29,8 +31,12 @@ export class AdminmapCiduadminComponent implements OnInit {
   fullscreenControl: boolean;
   panControl: boolean;
   Marcadores:any;
+
+  historico: Avaluo[] = [];
+  loading  = false;
   
-  constructor(private marcadoresService:MarcadoresService) { 
+  constructor(private marcadoresService:MarcadoresService,
+              private _ciduadmin: CiduadminService) { 
     this.lat = 4.656453;
     this.lng = -74.122186;
     this.zoom = 12;
@@ -45,12 +51,20 @@ export class AdminmapCiduadminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.marcadoresService.obtenerMarcadores().subscribe(respuesta=>{
-      console.log(respuesta);
-      this.Marcadores=respuesta;
-    });
-    
-  };
+    this.loading = true;
+    this._ciduadmin.historicoAvaluos().subscribe(data =>{
+      this.loading = false;
+      this.historico = [];
+        data.forEach((element: any) => {
+          this.historico.push({
+            id: element.payload.doc.id,
+            ...element.payload.doc.data()
+          })
+        });
+        console.log(this.historico);
+      }
+    );
+  }
 
   enviarDatos():any {
     console.log("Me presionaste");
@@ -68,6 +82,16 @@ export class AdminmapCiduadminComponent implements OnInit {
   }
  
   getCurrentPosition(): void{
+    navigator.geolocation.getCurrentPosition(position => {
+      this.lat = position.coords.latitude;
+      this.lng = position.coords.longitude;
+      this.zoom = 17;
+      this.located = true;
+    }) 
+
+  }
+
+  SearchAppraisal(): void{
     navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;

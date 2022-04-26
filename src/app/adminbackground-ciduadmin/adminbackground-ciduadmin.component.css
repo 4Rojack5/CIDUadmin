@@ -44,9 +44,26 @@
     border-radius: 10px;
     background-color: #52525299;
  }
- .table-hover{
-    color: #294374;
+  table tr th {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+ .sorting {
+    background-color: #D4D4D4;
  }
+ .asc:after {
+    content: ' ↑';
+ }
+ .desc:after {
+    content: " ↓";
+ }
+ .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #294374;
+  color: white;
+  }
 ::-webkit-scrollbar{
     width: 20px;
   }

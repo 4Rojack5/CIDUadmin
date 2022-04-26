@@ -12,8 +12,8 @@ export class Avaluo{
     ciudad : string;
     departamento : string;
     ubicacion : string;
-    latitud : string;
-    longitud : string;
+    latitud : number;
+    longitud : number;
     barrio : string;
     ciudadAvaluo : string;
     contacto : string;
@@ -35,7 +35,7 @@ export class Avaluo{
     constructor(uid: string, cliente: string, idavaluo: string, estado: string, mes: string
                ,tipodocumento: string, identificacion: string, nombreCliente: string
                ,direccion: string, ciudad: string, departamento : string, ubicacion: string
-               ,latitud: string, longitud: string, barrio : string, ciudadAvaluo: string
+               ,latitud: number, longitud: number, barrio : string, ciudadAvaluo: string
                ,contacto: string, telefonoContacto: string, fechaAsignacion: string
                ,fechaAgendamiento: string, fechaVisita: string, horaVisita: string
                ,visitador: string, pagoVisitador: string, observaciones: string, fua: string
