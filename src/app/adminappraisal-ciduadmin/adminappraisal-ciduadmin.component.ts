@@ -94,6 +94,7 @@ export class AdminappraisalCiduadminComponent implements OnInit {
         direccion:['', Validators.required],
         ciudad:['', Validators.required],
         departamento:['', Validators.required],
+        detallesDir:['', Validators.required],
         ubicacion:['', Validators.required],
         latitud:['', Validators.required],
         longitud:['', Validators.required],
@@ -145,6 +146,7 @@ export class AdminappraisalCiduadminComponent implements OnInit {
         direccion: this.formulariores.get('direccion')?.value,
         ciudad: this.formulariores.get('ciudad')?.value,
         departamento: this.formulariores.get('departamento')?.value,
+        detallesDir: this.formulariores.get('detallesDir')?.value,
         ubicacion: this.formulariores.get('ubicacion')?.value,
         latitud: this.formulariores.get('latitud')?.value,
         longitud: this.formulariores.get('longitud')?.value,
@@ -221,5 +223,6 @@ export class AdminappraisalCiduadminComponent implements OnInit {
     console.log("Me presionaste");
     console.log(this.formulariores.get('ubicacion')?.value);
     }
+
 
 }

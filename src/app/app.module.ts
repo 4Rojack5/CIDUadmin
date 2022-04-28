@@ -105,7 +105,7 @@ const routes: Routes = [
     AdminratesCiduadminComponent,
     ForgotCiduadminComponent,
     VerificationemailCiduadminComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     GoogleMapsModule,

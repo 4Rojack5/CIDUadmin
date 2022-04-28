@@ -21,31 +21,39 @@
                 <app-spinner></app-spinner>
                 <br>
               </div>
-              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId" [zoomControl]="zoomControl" [scaleControl]="scaleControl" [mapTypeControl]="mapTypeControl" [fullscreenControl]="fullscreenControl" [panControl]="panControl">
-                  <agm-marker [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="lat" [longitude]="lng" *ngIf="located">
+              <agm-map *ngIf="!loading" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId" [zoomControl]="zoomControl" [scaleControl]="scaleControl" [mapTypeControl]="mapTypeControl" [fullscreenControl]="fullscreenControl" [panControl]="panControl">
+                  <agm-marker [iconUrl]="iconMap" [animation]="'DROP'" [latitude]="lat" [longitude]="lng" *ngIf="located">
                     <agm-info-window>
-                      <label class="text-dark">Mi posición</label>
+                      <h6 class="text-dark text-center">Mi Posición</h6>
                     </agm-info-window>
                   </agm-marker>
-                  <agm-marker *ngFor ="let avaluo of historico; let i = index" [iconUrl]="iconMap.iconUrl" [animation]="'DROP'" [latitude]="avaluo.latitud" [longitude]="avaluo.longitud">
+                  <agm-marker *ngFor ="let avaluo of historico; let i = index" [iconUrl]="iconMap" [animation]="'DROP'" [latitude]="avaluo.latitud" [longitude]="avaluo.longitud">
                     <agm-info-window>
                       <h6 class="text-dark text-center">{{ avaluo.direccion }}</h6>
                       <label class="text-dark text-center">{{ avaluo.contacto }}</label>
+                      <br>
+                      <label class="text-dark text-center">{{ avaluo.tipodocumento }} {{ avaluo.identificacion }}</label>
+                      <br>
+                      <label class="text-dark text-center">$ {{ avaluo.valorAvaluo }} COP</label>
+                      <br>
+                      <label class="text-dark text-center">{{ avaluo.tipoAvaluo }}</label>
+                      <br>
+                      <h6 class="text-dark text-center">{{ avaluo.idavaluo }}</h6>
                     </agm-info-window>
                   </agm-marker>
               </agm-map>
             </div>
         </div>
         <div class="col pr-5">
-        <form (ngSubmit)="enviarDatos()" class="was-validated px-5">
+        <form class="was-validated px-5" [formGroup]="formMapa">
           <div class="mt-5">
             <label class="form-check-label mb-3" for="validationFormCheck3" id="raisalsearchtext">Ingrese C.C. dueño del inmueble:</label>
             <br>
-            <input type="text bg-warning" class="form-control" id="validationFormCheck3" name="radio-stacked" required>
+            <input type="text bg-warning" class="form-control" id="validationFormCheck3" formControlName="idavaluo">
             <div class="invalid-feedback text-warning">Digite numero de cedula.</div>
           </div>
             <div class="buttonsearch mb-3 mt-2">
-              <button class="btn" type="submit">
+              <button class="btn" type="submit" (click)="SearchAppraisal()">
                 <img [src]="raisal" id="raisal" alt="...">
                 <span id="textraisal">Buscar Avalúo</span>
               </button>

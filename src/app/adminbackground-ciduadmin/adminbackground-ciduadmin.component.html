@@ -14,45 +14,101 @@
         <p id="h1">HISTORICO DE AVALÚOS</p>
       </div>
     </section>
-    <div class="container-fluid horizontal-scrollable">
+    <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+      <app-spinner></app-spinner>
+    </div>
+    <br>
+    <div *ngIf="!loading" class="container-fluid horizontal-scrollable">
             <table class="table text-white table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">ESTADO</th>
-                        <th scope="col">CLIENTE</th>
-                        <th scope="col">MES</th>
-                        <th scope="col">CÓDIGO AVALÚO</th>
-                        <th scope="col">TIPO DE DOCUMENTO</th>
-                        <th scope="col">NUMERO DE DOCUMENTO</th>
-                        <th scope="col">NOMBRE CLIENTE</th>
-                        <th scope="col">DIRECCIÓN</th>
-                        <th scope="col">CONJUNTO/BARRIO</th>
-                        <th scope="col">CIUDAD</th>
-                        <th scope="col">CONTACTO</th>
-                        <th scope="col">TEL CONTACTO</th>
-                        <th scope="col">FECHA DE ASIGNACIÓN</th>
-                        <th scope="col">FECHA DE AGENDAMIENTO</th>
-                        <th scope="col">FECHA DE VISITA</th>
-                        <th scope="col">HORA DE VISITA</th>
-                        <th scope="col">VISITADOR</th>
-                        <th scope="col">PAGO VISITADOR</th>
-                        <th scope="col">OBSERVACIONES DE GESTIÓN</th>
-                        <th scope="col">FUA</th>
-                        <th scope="col">REVISIÓN FUA MERCADO</th>
-                        <th scope="col">FECHA ENVÍO INFORME</th>
-                        <th scope="col">VALOR DE AVALÚO</th>
-                        <th scope="col">URBANO/RURAL</th>
-                        <th scope="col">TIPO DE AVALÚO</th>
+                        <th scope="col">
+                          #
+                        </th>
+                        <th scope="col">
+                          ESTADO
+                        </th>
+                        <th scope="col">
+                            ESTADO
+                        </th>
+                        <th scope="col">
+                          MES
+                        </th>
+                        <th scope="col">
+                          CÓDIGO AVALÚO
+                        </th>
+                        <th scope="col">
+                          TIPO DE DOCUMENTO
+                        </th>
+                        <th scope="col">
+                          NUMERO DE DOCUMENTO
+                        </th>
+                        <th scope="col">
+                          NOMBRE CLIENTE
+                        </th>
+                        <th scope="col">
+                          DIRECCIÓN
+                        </th>
+                        <th scope="col">
+                          DETALLES
+                        </th>
+                        <th scope="col">
+                          CONJUNTO/BARRIO
+                        </th>
+                        <th scope="col">
+                          CIUDAD
+                        </th>
+                        <th scope="col">
+                          CONTACTO
+                        </th>
+                        <th scope="col">
+                          TEL CONTACTO
+                        </th>
+                        <th scope="col">
+                          FECHA DE ASIGNACIÓN
+                        </th>
+                        <th scope="col">
+                          FECHA DE AGENDAMIENTO
+                        </th>
+                        <th scope="col">
+                          FECHA DE VISITA
+                        </th>
+                        <th scope="col">
+                          HORA DE VISITA
+                        </th>
+                        <th scope="col">
+                          VISITADOR
+                        </th>
+                        <th scope="col">
+                          PAGO VISITADOR
+                        </th>
+                        <th scope="col">
+                          OBSERVACIONES DE GESTIÓN
+                        </th>
+                        <th scope="col">
+                          FUA
+                        </th>
+                        <th scope="col">
+                          REVISIÓN FUA MERCADO
+                        </th>
+                        <th scope="col">
+                          FECHA ENVÍO INFORME
+                        </th>
+                        <th scope="col">
+                          VALOR DE AVALÚO
+                        </th>
+                        <th scope="col">
+                          URBANO/RURAL
+                        </th>
+                        <th scope="col">
+                          TIPO DE AVALÚO
+                        </th>
                     </tr>
                 </thead>
-                <div *ngIf="loading" class="d-flex justify-content-center mt-5">
-                  <app-spinner></app-spinner>
-                </div>
                 <tbody *ngFor ="let avaluo of historico; let i = index">
                     <tr>
-                      <td>{{ i  + 1 }}</td>
-                      <td>{{ avaluo.estado }}</td>
+                      <td>{{ i + 1 }}</td>
+                      <td>Avalúo {{ avaluo.estado }}</td>
                       <td>{{ avaluo.cliente}}</td>
                       <td>{{ avaluo.mes }}</td>
                       <td>{{ avaluo.idavaluo}}</td>
@@ -60,6 +116,7 @@
                       <td>{{ avaluo.identificacion }}</td>
                       <td>{{ avaluo.nombreCliente }}</td>
                       <td>{{ avaluo.ubicacion }}</td>
+                      <td>{{ avaluo.detallesDir }}</td>
                       <td>{{ avaluo.barrio }}</td>
                       <td>{{ avaluo.ciudadAvaluo }}</td>
                       <td>{{ avaluo.contacto }}</td>
@@ -81,5 +138,9 @@
                   </tbody>
             </table>
         </div>
+
+        <div class="container-fluid">
+        <button class="fa fa-file-excel-o boton" type="button" (click)="exportExcel()" placement="top" ngbTooltip="Generar Reporte de Avalúos."></button>
+      </div>
 </body>
 <app-footer></app-footer>

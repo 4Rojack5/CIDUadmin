@@ -83,6 +83,9 @@
 .botonmar:active {
     color: red;
 }
+label{
+  text-align: center;
+}
 #raisal{
   width: 30px;
   height: 30px;

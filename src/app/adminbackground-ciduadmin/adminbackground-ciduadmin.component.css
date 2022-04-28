@@ -51,6 +51,26 @@
   -ms-user-select: none;
   user-select: none;
   }
+  .container-fluid{
+    display: flex;
+    justify-content: center;
+  }
+  .boton{
+    background: #334f91;
+    color: #ffffff;
+    font-weight: 500;
+    width: 70px;
+    height: 70px;
+    border: none;
+    cursor: pointer;
+    transition: .9s ease all;
+    border-bottom: 5px solid #294374;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.boton:hover{
+  background: #294374;
+}
  .sorting {
     background-color: #D4D4D4;
  }

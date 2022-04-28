@@ -28,8 +28,8 @@
                         <select class="form-select" id="inputGroupSelect01" formControlName="estado" placement="top"
                         ngbTooltip="Estado del avalúo">
                           <option selected>Seleccione...</option>
-                          <option value="Completo">COMPLETO</option>
-                          <option value="Incompleto">INCOMPLETO</option>
+                          <option value="Entregado">ENTREGADO</option>
+                          <option value="No Entregado">NO ENTREGADO</option>
                           <option value="Pendiente">PENDIENTE POR REVISAR</option>
                         </select>
                         <br>
@@ -64,7 +64,7 @@
                         <input id="typeahead-basic" type="text" class="form-control" id="dep" placeholder="Departamento"  formControlName="departamento" placement="top" ngbTooltip="Departamento de Colombia. Ejemplo: Cundinamarca" [ngbTypeahead]="search"/>
                         
                         </div>
-                        <!-- <textarea class="w-100" formControlName="detallesdir" name="res" id="res" placeholder="Ingrese detalles de la dirección" placement="top" ngbTooltip="Detalles de la dirreción. Ejemplo: Torre 2 Etapa 2 10 Piso Apto 1011"></textarea> -->
+                        <textarea class="w-100" formControlName="detallesDir" placeholder="Ingrese detalles de la dirección" placement="top" ngbTooltip="Detalles de la dirreción. Ejemplo: Torre 2 Etapa 2 10 Piso Apto 1011"></textarea>
                         <button class="btn btn-primary w-100 text-sub mb-3" type="submit" (click)="validarDireccion()"><span>Ingresar Dirección</span></button>
                         <textarea class="w-100" formControlName="ubicacion" name="res" id="res" placement="top" ngbTooltip="Muestra la dirección valida." readonly></textarea>
                         <br>
@@ -139,7 +139,7 @@
                           <option value="Rural">RURAL</option>
                           <option value="Convencionado">CONVENCIONADO</option>
                           <option value="Urbano Convencionado">URBANO CONVENCIONADO</option>
-                          <option value="Rural Convencionado">RURAL-CONVENCIONADO</option>
+                          <option value="Rural Convencionado">RURAL CONVENCIONADO</option>
                         </select>
                         <br>
                         <label class="form-label font-weight-bold text-sub">TIPO DE AVALÚO: </label>
