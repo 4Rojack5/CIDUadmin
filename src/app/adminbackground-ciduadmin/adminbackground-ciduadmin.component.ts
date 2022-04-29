@@ -15,7 +15,8 @@ export class AdminbackgroundCiduadminComponent implements OnInit {
 
   logo:string = '../assets/Pictures/LogoNombre.png';
 
-  constructor(private _ciduadmin: CiduadminService) { }
+  constructor(private _ciduadmin: CiduadminService) {
+               }
 
   ngOnInit(): void {
     this.loading = true;
@@ -26,8 +27,10 @@ export class AdminbackgroundCiduadminComponent implements OnInit {
           this.historico.push({
             id: element.payload.doc.id,
             ...element.payload.doc.data()
+            
           })
         });
+
         console.log(this.historico);
       }
     );

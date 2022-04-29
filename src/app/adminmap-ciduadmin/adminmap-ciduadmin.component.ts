@@ -120,13 +120,25 @@ export class AdminmapCiduadminComponent implements OnInit {
         latitud: '',
         longitud: ''
       }
-      console.log(mapa, "hola bb");
+      //console.log(mapa, "hola bb");
+      let resp:string[] = [
+
+      ];
       
       this._ciduadmin.obtenerAvaluo().then(resp => {
         this.tablas = resp;
-        console.log(this.tablas);
-        if(mapa.idavaluo == this.tablas.idavaluo){
-          console.log('hola bb lo logramos');
+        //console.log(resp, 'resp');
+          for(let idavaluo of Object.keys(this.tablas)){
+            const codigos1 = this.tablas[idavaluo];
+            //console.log(codigos1, 'id Avaluos');
+            for (let idavaluo of Object.keys(codigos1)){
+              const codigos2 = codigos1[idavaluo];
+              console.log(idavaluo,": ",codigos2);
+
+              if(mapa.idavaluo === codigos2){
+                //console.log(codigos2, mapa.idavaluo, 'hola bb lo logramos');
+              }
+            }
         }
       });
   }
