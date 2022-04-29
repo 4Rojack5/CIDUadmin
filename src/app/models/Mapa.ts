@@ -2,8 +2,8 @@ export class Mapa{
 
     keys? : string = "";
     idavaluo : string = "";
-    latitud : string = "";
-    longitud : string = "";
+    latitud : number = 0;
+    longitud : number = 0;
 
 
 }

@@ -41,6 +41,11 @@
                       <h6 class="text-dark text-center">{{ avaluo.idavaluo }}</h6>
                     </agm-info-window>
                   </agm-marker>
+                  <agm-marker *ngFor ="let codigo of avaluo; let i = index" [iconUrl]="iconMap" [animation]="'DROP'" [latitude]="codigo.latitud" [longitude]="codigo.longitud">
+                    <agm-info-window>
+                      <h6 class="text-dark text-center">{{ codigo.idavaluo }}</h6>
+                    </agm-info-window>
+                  </agm-marker>
               </agm-map>
             </div>
         </div>

@@ -39,6 +39,7 @@ export class AdminmapCiduadminComponent implements OnInit {
   Marcadores:any;
 
   historico: Avaluo[] = [];
+  avaluo: Mapa[] = [];
   tablas: any = [];
   loading  = false;
 
@@ -117,8 +118,8 @@ export class AdminmapCiduadminComponent implements OnInit {
   SearchAppraisal() {
       const mapa : Mapa = {
         idavaluo: this.formMapa.get('idavaluo')?.value,
-        latitud: '',
-        longitud: ''
+        latitud: 0,
+        longitud: 0
       }
       //console.log(mapa, "hola bb");
       let resp:string[] = [
@@ -130,13 +131,23 @@ export class AdminmapCiduadminComponent implements OnInit {
         //console.log(resp, 'resp');
           for(let idavaluo of Object.keys(this.tablas)){
             const codigos1 = this.tablas[idavaluo];
-            //console.log(codigos1, 'id Avaluos');
+            //console.log(codigos1);
             for (let idavaluo of Object.keys(codigos1)){
               const codigos2 = codigos1[idavaluo];
-              console.log(idavaluo,": ",codigos2);
+              ///console.log(idavaluo,": ",codigos2);
 
-              if(mapa.idavaluo === codigos2){
-                //console.log(codigos2, mapa.idavaluo, 'hola bb lo logramos');
+              if(mapa.idavaluo === codigos2 || mapa.latitud === codigos2 || mapa.longitud === codigos2 ){
+                console.log(codigos2, mapa.idavaluo);
+                  this.avaluo = [];
+                      this.avaluo.push({ ...codigos2 });
+                //console.log(this.avaluo);
+                navigator.geolocation.getCurrentPosition(position => {
+                  this.lat = codigos2.latitud;
+                  this.lng = codigos2.longitud;
+                  //console.log(this.lat, this.lng);
+                  this.zoom = 17;
+                  this.located = false;
+                }) 
               }
             }
         }
