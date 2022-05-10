@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Mapa } from '../models/Mapa';
 import { MarcadoresService } from '../servicio/marcadores.service';
 import { CiduadminService } from '../servicio/ciduadmin.service';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-adminmap-ciduadmin',
@@ -17,7 +18,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./adminmap-ciduadmin.component.css']
 })
 
-export class AdminmapCiduadminComponent implements OnInit {
+export class AdminmapCiduadminComponent implements OnInit, OnDestroy {
 
   lat: number;
   lng: number;
@@ -48,6 +49,8 @@ export class AdminmapCiduadminComponent implements OnInit {
   latitud: string = '';
   longitud: string = '';
   
+  suscriptionUser: Subscription = new Subscription();
+
   constructor(private marcadoresService:MarcadoresService,
               private fb: FormBuilder,
               private router: Router,
@@ -76,6 +79,14 @@ export class AdminmapCiduadminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.suscriptionUser = this.afAuth.user.subscribe(user =>{
+      if(user){
+
+      }else{
+        this.router.navigate(['/']);
+      }
+    })
     this.loading = true;
     this._ciduadmin.historicoAvaluos().subscribe(data =>{
       this.loading = false;
@@ -90,6 +101,10 @@ export class AdminmapCiduadminComponent implements OnInit {
       }
       
     );
+  }
+
+  ngOnDestroy(): void {
+    this.suscriptionUser.unsubscribe();
   }
   
   getOriginalPosition(): void{

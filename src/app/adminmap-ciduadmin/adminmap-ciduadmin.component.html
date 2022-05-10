@@ -52,13 +52,16 @@
         <div class="col pr-5">
         <form class="was-validated px-5" [formGroup]="formMapa">
           <div class="mt-5">
-            <label class="form-check-label mb-3" for="validationFormCheck3" id="raisalsearchtext">Ingrese C.C. dueño del inmueble:</label>
+            <label class="form-check-label mb-3" for="validationFormCheck3" id="raisalsearchtext">Ingrese IDAvaluo del Inmueble:</label>
             <br>
-            <input type="text bg-warning" class="form-control" id="validationFormCheck3" formControlName="idavaluo">
-            <div class="invalid-feedback text-warning">Digite numero de cedula.</div>
+            <input type="text bg-warning" class="form-control" id="validationFormCheck3" formControlName="idavaluo"> 
+            <span class="text-warning" 
+            *ngIf="formMapa.get('idavaluo')?.hasError('required') && formMapa.get('idavaluo')?.touched">
+             El IDAvaluo <span class="alerta">es requerido</span>
+          </span>
           </div>
             <div class="buttonsearch mb-3 mt-2">
-              <button class="btn" type="submit" (click)="SearchAppraisal()">
+              <button class="btn" type="submit" [disabled]="formMapa.invalid" (click)="SearchAppraisal()">
                 <img [src]="raisal" id="raisal" alt="...">
                 <span id="textraisal">Buscar Avalúo</span>
               </button>

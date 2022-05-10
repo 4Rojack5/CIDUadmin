@@ -1,24 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import { Avaluo } from '../models/Avaluo';
 import { CiduadminService } from '../servicio/ciduadmin.service';
 import * as FileSaver from 'file-saver';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-adminbackground-ciduadmin',
   templateUrl: './adminbackground-ciduadmin.component.html',
   styleUrls: ['./adminbackground-ciduadmin.component.css']
 })
-export class AdminbackgroundCiduadminComponent implements OnInit {
+export class AdminbackgroundCiduadminComponent implements OnInit, OnDestroy {
 
   historico: Avaluo[] = [];
   loading  = false;
 
+  suscriptionUser: Subscription = new Subscription();
   logo:string = '../assets/Pictures/LogoNombre.png';
 
-  constructor(private _ciduadmin: CiduadminService) {
+  constructor(private _ciduadmin: CiduadminService
+             ,private afAuth: AngularFireAuth
+             ,private router: Router) {
                }
 
   ngOnInit(): void {
+    this.suscriptionUser = this.afAuth.user.subscribe(user =>{
+      if(user){
+
+      }else{
+        this.router.navigate(['/']);
+      }
+    })
     this.loading = true;
     this._ciduadmin.historicoAvaluos().subscribe(data =>{
       this.loading = false;
@@ -34,6 +47,10 @@ export class AdminbackgroundCiduadminComponent implements OnInit {
         console.log(this.historico);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.suscriptionUser.unsubscribe();
   }
 
   exportExcel(){

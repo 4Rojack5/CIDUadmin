@@ -43,7 +43,6 @@ export class LoginCiduadminComponent implements OnInit {
       this.loading = true;
 
       this.afAuth.signInWithEmailAndPassword(usuario, password).then( respuesta => {
-        console.log(respuesta);
         this.toastr.success('Ingreso exitoso', 'Usuario valido');
         this.setLocalStorage(respuesta.user);
         this.router.navigate(['/CIDUadminpanel']);

@@ -1,112 +1,56 @@
 .fondo {
-    background-color: #294374;
-    color: var(--light);
-    overflow-x: hidden;
-  }
-  #section1{  
-    margin-top: 100px;
-    margin-bottom: 25px;
-  }
-  #section2{
-    margin-bottom: 25px;
-  }
-  #logocidu{ 
-    margin-bottom: 35px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 265px;
-    height: 115px;
-  }
-  #titulo{
-    margin-bottom: 35px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  #h1{
-    font-family: "gothicb";
-    font-size: 40px;
-  }
-  #col1{
-    height: 125px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  agm-map{
-    width: 900px;
-    height: 600px;
-  }
-  .was-validated{
-    border-style: solid;
-    border-width: 10px; 
-    border-color: #52525299;
-    border-radius: 10px;
-  }
-  .boton{
-    align-items: center;
-    justify-content: center;
-    background: #334f91;
-    color: #ffffff;
-    font-family: 'gothic';
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: .9s ease all;
-    border-bottom: 5px solid #294374;
-    border-radius: 12px;
+  background-color: #294374;
+  color: var(--light);
+  overflow-x: hidden;
 }
-.boton:hover{
-  background: #294374;
+#section1{  
+  margin-top: 100px;
+  margin-bottom: 25px;
 }
-#logoubi{
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+#section2{
+  margin-bottom: 25px;
 }
-#logohis{
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+#logocidu{ 
+  margin-bottom: 35px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 265px;
+  height: 115px;
 }
-#logomar{
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+#titulo{
+  margin-bottom: 35px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-.botonmar:active {
-    color: red;
+#h1{
+  font-family: "gothicb";
+  font-size: 40px;
 }
-label{
-  text-align: center;
+#col1{
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#raisal{
-  width: 30px;
-  height: 30px;
-  margin-right: 2px;
-  margin-bottom: 2px;
+agm-map{
+  width: 900px;
+  height: 600px;
 }
-.buttonsearch{
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.was-validated{
+  border-style: solid;
+  border-width: 10px; 
+  border-color: #52525299;
+  border-radius: 10px;
 }
-.btn{
-  display: inline-flex;
+.boton{
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 80px;
   background: #334f91;
   color: #ffffff;
-  font-family: 'roboto', sans-serif;
-  font-size: 20px;
+  font-family: 'gothic';
+  font-size: 16px;
   font-weight: 500;
   border: none;
   cursor: pointer;
@@ -115,19 +59,87 @@ label{
   border-bottom: 5px solid #294374;
   border-radius: 12px;
 }
+.boton:hover{
+background: #294374;
+}
+#logoubi{
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#logohis{
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#logomar{
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.botonmar:active {
+  color: red;
+}
+label{
+text-align: center;
+}
+#raisal{
+width: 30px;
+height: 30px;
+margin-right: 2px;
+margin-bottom: 2px;
+}
+.buttonsearch{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.btn{
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 80px;
+background: #334f91;
+color: #ffffff;
+font-family: 'roboto', sans-serif;
+font-size: 20px;
+font-weight: 500;
+border: none;
+cursor: pointer;
+text-transform: uppercase;
+transition: .9s ease all;
+border-bottom: 5px solid #294374;
+border-radius: 12px;
+}
 .btn:hover{
-  background: #294374;
+background: #294374;
 }
 #textraisal{
-  margin-top: 5px;
-  margin-left: 5px;
+margin-top: 5px;
+margin-left: 5px;
 }
 #raisalsearchtext{
-  font-family: 'gothic';
-  text-transform: uppercase;
-  font-weight: 500;
+font-family: 'gothic';
+text-transform: uppercase;
+font-weight: 500;
 }
 .iconUrl{
-  width: 10px;
-  height: 10px;
+width: 10px;
+height: 10px;
+}
+/*Se agregan estilos al alerta*/
+.alerta{
+font-weight: bold;
+}
+/*Se agrega flex para que el login sea responsive*/
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

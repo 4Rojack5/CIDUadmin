@@ -1,5 +1,5 @@
 import { GeocoderResult } from '@agm/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators  } from '@angular/forms';
 import { MapGeocoder, MapGeocoderResponse } from '@angular/google-maps';
 import {Observable, OperatorFunction} from 'rxjs';
@@ -14,6 +14,7 @@ import { Avaluo } from '../models/Avaluo';
 import { User } from '../interfaces/User';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 const departamentos = 
   [
@@ -25,7 +26,7 @@ const departamentos =
   templateUrl: './adminappraisal-ciduadmin.component.html',
   styleUrls: ['./adminappraisal-ciduadmin.component.css']
 })
-export class AdminappraisalCiduadminComponent implements OnInit {
+export class AdminappraisalCiduadminComponent implements OnInit, OnDestroy {
 
   formulariores: FormGroup;
   valForm: FormControl = new FormControl();
@@ -66,6 +67,7 @@ export class AdminappraisalCiduadminComponent implements OnInit {
   sitio: string = '';
   tipoAvaluo: string = '';
 
+  suscriptionUser: Subscription = new Subscription();
 
   search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
   text$.pipe(
@@ -119,6 +121,17 @@ export class AdminappraisalCiduadminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.suscriptionUser = this.afAuth.user.subscribe(user =>{
+      if(user){
+
+      }else{
+        this.router.navigate(['/']);
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.suscriptionUser.unsubscribe();
   }
 
   validarFormulario(){
