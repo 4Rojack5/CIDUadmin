@@ -51,7 +51,7 @@
         </div>
         <div class="col pr-5">
         <form class="was-validated px-5" [formGroup]="formMapa">
-          <div class="mt-5">
+          <!--<div class="mt-5">
             <label class="form-check-label mb-3" for="validationFormCheck3" id="raisalsearchtext">Ingrese IDAvaluo del Inmueble:</label>
             <br>
             <input type="text bg-warning" class="form-control" id="validationFormCheck3" formControlName="idavaluo"> 
@@ -59,13 +59,13 @@
             *ngIf="formMapa.get('idavaluo')?.hasError('required') && formMapa.get('idavaluo')?.touched">
              El IDAvaluo <span class="alerta">es requerido</span>
           </span>
-          </div>
+     </div>   
             <div class="buttonsearch mb-3 mt-2">
               <button class="btn" type="submit" [disabled]="formMapa.invalid" (click)="SearchAppraisal()">
                 <img [src]="raisal" id="raisal" alt="...">
                 <span id="textraisal">Buscar Avalúo</span>
               </button>
-            </div>
+            </div>--> 
             <div class="row justify-content-center mt-5 mb-5">
               <div class="col-4">
                 <button class="boton" (click)="getCurrentPosition()">

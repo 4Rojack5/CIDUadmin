@@ -112,7 +112,7 @@ export class AdminmapCiduadminComponent implements OnInit, OnDestroy {
       this.lat = 4.656453;
       this.lng = -74.122186;
       this.zoom = 10.7;
-      this.mapTypeId = 'hybrid';
+      this.mapTypeId = 'roadmap';
       this.located = false;
       this.animation = "'BOUNCE'";
       this.iconMap = '../assets/Pictures/markerHouse.png';
@@ -136,7 +136,6 @@ export class AdminmapCiduadminComponent implements OnInit, OnDestroy {
         latitud: 0,
         longitud: 0
       }
-      //console.log(mapa, "hola bb");
       let resp:string[] = [
 
       ];
